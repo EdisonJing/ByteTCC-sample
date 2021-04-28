@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.bytesvc.provider.service.IAccountService;
 
-@Compensable(interfaceClass = IAccountService.class, cancellableKey = "accountServiceCancel")
+@Compensable(interfaceClass = IAccountService.class
+, cancellableKey = "accountServiceCancel"
+, confirmableKey = "accountServiceConfirm")
 @RestController
 public class AccountController {
 	@Autowired

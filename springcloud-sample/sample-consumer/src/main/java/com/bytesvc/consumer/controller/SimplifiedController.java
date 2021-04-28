@@ -39,8 +39,8 @@ public class SimplifiedController implements ITransferService {
 	@CompensableCancel
 	@Transactional
 	public void cancelTransfer(String sourceAcctId, String targetAcctId, double amount) {
-		this.transferDao.cancelIncrease(targetAcctId, amount);
-		System.out.printf("exec decrease: acct= %s, amount= %7.2f%n", targetAcctId, amount);
+		this.transferDao.increaseAmountCancle(targetAcctId, amount);
+		System.out.printf("exec increaseAmountCancle: acct= %s, amount= %7.2f%n", targetAcctId, amount);
 	}
 
 }

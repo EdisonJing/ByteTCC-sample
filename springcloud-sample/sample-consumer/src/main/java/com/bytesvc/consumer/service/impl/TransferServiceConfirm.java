@@ -7,16 +7,16 @@ import org.springframework.transaction.annotation.Transactional;
 import com.bytesvc.consumer.dao.TransferDao;
 import com.bytesvc.consumer.service.ITransferService;
 
-@Service("transferServiceCancel")
-public class TransferServiceCancel implements ITransferService {
+@Service("transferServiceConfirm")
+public class TransferServiceConfirm implements ITransferService {
 
 	@Autowired
 	private TransferDao transferDao;
 
 	@Transactional
 	public void transfer(String sourceAcctId, String targetAcctId, double amount) {
-		this.transferDao.increaseAmountCancle(targetAcctId, amount);
-		System.out.printf("exec increaseAmountCancle: acct= %s, amount= %7.2f%n", targetAcctId, amount);
+		this.transferDao.increaseAmountConfirm(targetAcctId, amount);
+		System.out.printf("exec increaseAmountConfirm : acct= %s, amount= %7.2f%n", targetAcctId, amount);
 	}
 
 }
