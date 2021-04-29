@@ -34,7 +34,8 @@ public class AccountController {
 	public void decreaseAmount(@RequestParam("acctId") String acctId, @RequestParam("amount") double amount) {
 		this.jdbcTemplate.update("update tb_account_one set amount = amount - ? where acct_id = ?", amount, acctId);
 		System.out.printf("exec decrease: acct= %s, amount= %7.2f%n", acctId, amount);
-
+		long k = System.currentTimeMillis()%5;
+		long i = 1/k;
 		// throw new IllegalStateException("error");
 	}
 

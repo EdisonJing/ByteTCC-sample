@@ -1,5 +1,7 @@
 package com.bytesvc.consumer.controller;
 
+import java.util.Random;
+
 import org.bytesoft.compensable.Compensable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
@@ -33,7 +35,8 @@ public class TransferController implements ITransferService {
 	}
 
 	private void increaseAmount(String acctId, double amount) {
-//		int i = 1/0;
+		long k = System.currentTimeMillis()%3;
+		long i = 1/k;
 		this.transferDao.increaseAmount(acctId, amount);
 		System.out.printf("exec increase: acct= %s, amount= %7.2f%n", acctId, amount);
 	}
